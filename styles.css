@@ -111,7 +111,7 @@ body {
     margin: 0 0 2.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);
-    border:red solid 1px;
+   
 }
 
 .slider {
@@ -120,7 +120,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    border:green solid 1px;
+   
 }
 
 .slider li {
@@ -133,15 +133,14 @@ body {
     opacity: 0;
     animation: slideAnimation 21s infinite;
     transition: opacity 1s ease-in-out;
-    border:blue solid 1px;
-}
+    }
 
 .slider li img {
     width: 100%;    
     height: 100%;
     object-fit: cover;
     display: block;
-    border:purple solid 1px;
+   
 }
 
 .slider-overlay {
@@ -152,14 +151,12 @@ body {
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
     padding: 1.5vw;
     color: white;
-    text-align: center;
-    border:red solid 1px;
+    text-align: center;  
 }
 
 .slider-overlay h2 {
     font-size: 2.5rem;
     margin-bottom: 0.625rem;
-    
     text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.8);
 }
 
