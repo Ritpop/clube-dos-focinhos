@@ -1,4 +1,4 @@
-<!-- Falta fazer o email funcionar, corrigir images, fazer figma, colocar baguethe (widgte) de rede social-->
+<!--  colocar baguethe (widgte) de rede social-->
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -340,7 +340,7 @@
 
             <div class="contact-form">
                 <h3>Envie uma Mensagem</h3>
-                <form>
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Nome</label>
                         <input type="text" id="name" name="name" required>
@@ -352,17 +352,44 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="subject">Assunto</label>
-                        <input type="text" id="subject" name="subject">
-                    </div>
-
-                    <div class="form-group">
                         <label for="message">Mensagem</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
 
+                    <input type="hidden" name="_subject" value="Mensagem do site Clube dos Focinhos">
+                    <input type="text" name="_honey" style="display: none;">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <button type="submit" class="submit-button">Enviar Mensagem</button>
                 </form>
+
+                <p id="success-message" style="display: none; color: green;">Mensagem enviada com sucesso!</p>
+
+
+                </form>
+                <script>
+                    document.getElementById('contact-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        const formData = new FormData(this);
+
+                        fetch('https://formsubmit.co/aqueledavidcamara@gmail.com', {
+                            method: 'POST',
+                            body: formData
+                        }).then(response => {
+                            if (response.ok) {
+                                document.getElementById('success-message').style.display = 'block';
+                                this.reset();
+                            } else {
+
+                                alert('Erro ao enviar a mensagem. Tente novamente!');
+                            }
+                        }).catch(error => {
+                            console.error('Erro:', error);
+                            alert('Erro ao enviar a mensagem. Verifique sua conexão.');
+                        });
+                    });
+                </script>
             </div>
         </section>
     </div>
