@@ -240,6 +240,50 @@
 
 
         <section id="donate">
+            <script>
+                window.addEventListener('load', function() {
+
+                    const pixElement = document.getElementById('pix');
+                    const copyButton = document.getElementById('copyPixButton');
+
+
+
+                    function copyPix() {
+
+
+                        const pixText = pixElement.textContent.trim();
+
+                        const textarea = document.createElement('textarea');
+                        textarea.value = pixText;
+                        textarea.style.position = 'fixed';
+                        textarea.style.opacity = '0';
+                        document.body.appendChild(textarea);
+                        textarea.select();
+
+                        try {
+                            const success = document.execCommand('copy');
+                            if (success) {
+                                alert("PIX copiado: " + pixText);
+                            } else {
+                                alert("Não foi possível copiar o PIX. Por favor, copie manualmente: " + pixText);
+                            }
+                        } catch (err) {
+                            console.error("Copy error:", err);
+                            alert("Erro ao copiar. Por favor, copie manualmente: " + pixText);
+                        }
+
+                        document.body.removeChild(textarea);
+                    }
+
+
+                    if (copyButton) {
+                        copyButton.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            copyPix();
+                        });
+                    }
+                });
+            </script>
             <h2>Como Ajudar</h2>
             <p>Seu apoio é fundamental para continuarmos nosso trabalho. Existem diversas formas de contribuir!</p>
 
@@ -249,9 +293,9 @@
                     <p>Sua contribuição ajuda a custear castrações, medicamentos e exames veterinários.</p>
                     <div class="pix-info">
                         <p><strong>PIX:</strong></p>
-                        <p>26.762.282/0001-58</p>
+                        <p id="pix">26.762.282/0001-58</p>
                     </div>
-                    <button class="donate-button">Quero Doar</button>
+                    <button class="donate-button" id="copyPixButton">Quero Doar</button>
                 </div>
 
                 <div class="donate-card">
