@@ -573,6 +573,77 @@ footer {
 }
 
 
+/* Social Icons */
+
+.social-widget {
+    position: fixed;
+    top: 85%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    z-index: 99;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: #fff;
+    color: var(--grape);
+    text-decoration: none;
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--royal-purple);
+    color: white;
+    transform: scale(1.1);
+}
+
+.social-icon i {
+    font-size: 1.5rem;
+}
+
+.social-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.social-label {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 0.75rem;
+    background-color: var(--grape);
+    color: white;
+    border-radius: 0.3125rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    margin-right: 0.625rem;
+}
+
+.social-icon:hover .social-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(-0.625rem);
+}
+
+.social-icon {
+    position: relative;
+    overflow: visible;
+}
+
+
 /* Responsividade */
 
 @media screen and (max-width: 768px) {
