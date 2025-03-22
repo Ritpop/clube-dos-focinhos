@@ -357,8 +357,7 @@
                     </div>
 
                     <input type="hidden" name="_subject" value="Mensagem do site Clube dos Focinhos">
-                    <input type="text" name="_honey" style="display: none;">
-                    <input type="hidden" name="_captcha" value="false">
+
 
                     <button type="submit" class="submit-button">Enviar Mensagem</button>
                 </form>
@@ -367,29 +366,7 @@
 
 
                 </form>
-                <script>
-                    document.getElementById('contact-form').addEventListener('submit', function(e) {
-                        e.preventDefault();
 
-                        const formData = new FormData(this);
-
-                        fetch('https://formsubmit.co/aqueledavidcamara@gmail.com', {
-                            method: 'POST',
-                            body: formData
-                        }).then(response => {
-                            if (response.ok) {
-                                document.getElementById('success-message').style.display = 'block';
-                                this.reset();
-                            } else {
-
-                                alert('Erro ao enviar a mensagem. Tente novamente!');
-                            }
-                        }).catch(error => {
-                            console.error('Erro:', error);
-                            alert('Erro ao enviar a mensagem. Verifique sua conexão.');
-                        });
-                    });
-                </script>
             </div>
         </section>
     </div>
